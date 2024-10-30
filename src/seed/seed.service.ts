@@ -13,6 +13,14 @@ export class SeedService {
 
   async executeSeed() {
     const { data } = await axios.get<PokeResponse>('https://pokeapi.co/api/v2/pokemon?limit=1302');
+
+    data.results.forEach(({ name, url }) => {
+
+      const segments = url.split('/');
+      const no = segments[ segments.length - 2 ];
+
+    });
+
     return data.results;
   }
 
